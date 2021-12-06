@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp_Epuletek
 {
-    class Tombhaz : Epulet
+    class Tombhaz : Epulet,CSV
     {
         readonly int lakasokSzama;
         Fenntartas fenntartasTipusa;
@@ -23,6 +23,15 @@ namespace WindowsFormsApp_Epuletek
             this.lakasokSzama = lakasokSzama;
             FenntartasTipusa = fenntartasTipusa;
             this.vanLift = vanLift;
+        }
+
+        public override string ToString()
+        {
+            return Cim;
+        }
+        public string toCSV()
+        {
+            return String.Join(";", "tomb", Cim, Alapterulet, Epitesianyag, Kezdes.ToString("yyyy-MM-dd"), Befejezes.ToString("yyyy-MM-dd"), lakasokSzama, fenntartasTipusa, vanLift);
         }
     }
 }

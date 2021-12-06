@@ -31,6 +31,8 @@ namespace WindowsFormsApp_Epuletek
         {
             this.listBox_Epuletek = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.button_uj_tombhaz = new System.Windows.Forms.Button();
+            this.button_Save = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox_Epuletek
@@ -48,15 +50,37 @@ namespace WindowsFormsApp_Epuletek
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 26);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Családi ház";
+            this.button1.Text = "Új családiház";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.button_uj_csaladi_Click);
+            // 
+            // button_uj_tombhaz
+            // 
+            this.button_uj_tombhaz.Location = new System.Drawing.Point(228, 75);
+            this.button_uj_tombhaz.Name = "button_uj_tombhaz";
+            this.button_uj_tombhaz.Size = new System.Drawing.Size(130, 26);
+            this.button_uj_tombhaz.TabIndex = 1;
+            this.button_uj_tombhaz.Text = "Új tömbház";
+            this.button_uj_tombhaz.UseVisualStyleBackColor = true;
+            this.button_uj_tombhaz.Click += new System.EventHandler(this.button_uj_tombhaz_Click);
+            // 
+            // button_Save
+            // 
+            this.button_Save.Location = new System.Drawing.Point(228, 135);
+            this.button_Save.Name = "button_Save";
+            this.button_Save.Size = new System.Drawing.Size(130, 38);
+            this.button_Save.TabIndex = 2;
+            this.button_Save.Text = "Mentés";
+            this.button_Save.UseVisualStyleBackColor = true;
+            this.button_Save.Click += new System.EventHandler(this.button_Save_Click);
             // 
             // Form_Nyito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(435, 450);
+            this.Controls.Add(this.button_Save);
+            this.Controls.Add(this.button_uj_tombhaz);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox_Epuletek);
             this.Name = "Form_Nyito";
@@ -69,6 +93,8 @@ namespace WindowsFormsApp_Epuletek
         #endregion
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.ListBox listBox_Epuletek;
+        private System.Windows.Forms.Button button_uj_tombhaz;
+        private System.Windows.Forms.Button button_Save;
     }
 }
 

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Csaladihaz.cs" />
+    <Compile Include="CSV.cs" />
     <Compile Include="Epulet.cs" />
     <Compile Include="Fenntartas.cs" />
     <Compile Include="Form_Nyito.cs">

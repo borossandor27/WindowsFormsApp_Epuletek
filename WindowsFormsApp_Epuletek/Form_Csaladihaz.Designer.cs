@@ -133,10 +133,25 @@ namespace WindowsFormsApp_Epuletek
             // numericUpDown_Alapterulet
             // 
             this.numericUpDown_Alapterulet.Location = new System.Drawing.Point(165, 64);
+            this.numericUpDown_Alapterulet.Maximum = new decimal(new int[] {
+            12000,
+            0,
+            0,
+            0});
+            this.numericUpDown_Alapterulet.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             this.numericUpDown_Alapterulet.Name = "numericUpDown_Alapterulet";
             this.numericUpDown_Alapterulet.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown_Alapterulet.TabIndex = 10;
             this.numericUpDown_Alapterulet.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDown_Alapterulet.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             // 
             // label2
             // 
@@ -174,10 +189,20 @@ namespace WindowsFormsApp_Epuletek
             // numericUpDown_OttElok
             // 
             this.numericUpDown_OttElok.Location = new System.Drawing.Point(165, 227);
+            this.numericUpDown_OttElok.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown_OttElok.Name = "numericUpDown_OttElok";
             this.numericUpDown_OttElok.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown_OttElok.TabIndex = 14;
             this.numericUpDown_OttElok.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDown_OttElok.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // comboBox_TetoTipusa
             // 

@@ -53,7 +53,7 @@ namespace WindowsFormsApp_Epuletek
             get => befejezes;
             set
             {
-                if (value >= kezdes)
+                if (((DateTime)value).Date >= kezdes.Date)
                 {
                     befejezes = value;
                 }

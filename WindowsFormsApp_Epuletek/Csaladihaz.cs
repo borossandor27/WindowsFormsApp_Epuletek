@@ -8,7 +8,7 @@ namespace WindowsFormsApp_Epuletek
 {
     enum TetoAnyaga { cserép, zsindely, nád };
 
-    class Csaladihaz : Epulet
+    class Csaladihaz : Epulet, CSV
     {
         int ottElok;
         bool vanGarazs;
@@ -23,6 +23,16 @@ namespace WindowsFormsApp_Epuletek
             OtkElok = otkElok;
             VanGarazs = vanGarazs;
             Tetotipus = tetotipus;
+        }
+        public override string ToString()
+        {
+             //-- Minden esetben, amikor karaktersorozattal jelenítjük meg
+            return Cim;
+        }
+
+        public string toCSV()
+        {
+            return String.Join(";", "csaladi", Cim, Alapterulet, Epitesianyag, Kezdes.ToString("yyyy-MM-dd"), Befejezes.ToString("yyyy-MM-dd"), ottElok, vanGarazs, tetotipus);
         }
     }
 }
