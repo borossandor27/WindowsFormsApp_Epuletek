@@ -32,7 +32,8 @@ namespace WindowsFormsApp_Epuletek
             this.listBox_Epuletek = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button_uj_tombhaz = new System.Windows.Forms.Button();
-            this.button_Save = new System.Windows.Forms.Button();
+            this.button_Delete = new System.Windows.Forms.Button();
+            this.button_Update = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox_Epuletek
@@ -64,27 +65,39 @@ namespace WindowsFormsApp_Epuletek
             this.button_uj_tombhaz.UseVisualStyleBackColor = true;
             this.button_uj_tombhaz.Click += new System.EventHandler(this.button_uj_tombhaz_Click);
             // 
-            // button_Save
+            // button_Delete
             // 
-            this.button_Save.Location = new System.Drawing.Point(228, 135);
-            this.button_Save.Name = "button_Save";
-            this.button_Save.Size = new System.Drawing.Size(130, 38);
-            this.button_Save.TabIndex = 2;
-            this.button_Save.Text = "Mentés";
-            this.button_Save.UseVisualStyleBackColor = true;
-            this.button_Save.Click += new System.EventHandler(this.button_Save_Click);
+            this.button_Delete.Location = new System.Drawing.Point(228, 127);
+            this.button_Delete.Name = "button_Delete";
+            this.button_Delete.Size = new System.Drawing.Size(130, 32);
+            this.button_Delete.TabIndex = 2;
+            this.button_Delete.Text = "Épület törlése";
+            this.button_Delete.UseVisualStyleBackColor = true;
+            this.button_Delete.Click += new System.EventHandler(this.button_Delete_Click);
+            // 
+            // button_Update
+            // 
+            this.button_Update.Location = new System.Drawing.Point(228, 177);
+            this.button_Update.Name = "button_Update";
+            this.button_Update.Size = new System.Drawing.Size(130, 34);
+            this.button_Update.TabIndex = 3;
+            this.button_Update.Text = "Módosítás";
+            this.button_Update.UseVisualStyleBackColor = true;
+            this.button_Update.Click += new System.EventHandler(this.button_Update_Click);
             // 
             // Form_Nyito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(435, 450);
-            this.Controls.Add(this.button_Save);
+            this.Controls.Add(this.button_Update);
+            this.Controls.Add(this.button_Delete);
             this.Controls.Add(this.button_uj_tombhaz);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox_Epuletek);
             this.Name = "Form_Nyito";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Nyito_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
@@ -94,7 +107,8 @@ namespace WindowsFormsApp_Epuletek
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.ListBox listBox_Epuletek;
         private System.Windows.Forms.Button button_uj_tombhaz;
-        private System.Windows.Forms.Button button_Save;
+        private System.Windows.Forms.Button button_Delete;
+        private System.Windows.Forms.Button button_Update;
     }
 }
 

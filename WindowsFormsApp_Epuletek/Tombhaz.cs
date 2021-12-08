@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp_Epuletek
 {
-    class Tombhaz : Epulet,CSV
+    class Tombhaz : Epulet,CSV, Kalkulacio
     {
         readonly int lakasokSzama;
         Fenntartas fenntartasTipusa;
@@ -32,6 +32,11 @@ namespace WindowsFormsApp_Epuletek
         public string toCSV()
         {
             return String.Join(";", "tomb", Cim, Alapterulet, Epitesianyag, Kezdes.ToString("yyyy-MM-dd"), Befejezes.ToString("yyyy-MM-dd"), lakasokSzama, fenntartasTipusa, vanLift);
+        }
+
+        public int kalkulaltAr()
+        {
+            return Alapterulet * lakasokSzama * 8000 + (vanLift ? 100000 : 0);
         }
     }
 }

@@ -17,52 +17,13 @@ namespace WindowsFormsApp_Epuletek
 
         public string Cim => cim;
 
-        public int Alapterulet { 
-            get => alapterulet;
-            set {
-                if (value >= 20)
-                {
-                    alapterulet = value;
-                }
-                else
-                {
-                    throw new Exception();
-                }
-            }  
-        }
+
 
         internal Anyagok Epitesianyag => epitesianyag;
 
-        public DateTime Kezdes
-        {
-            get => kezdes;
-            set
-            {
-                if (value >= DateTime.Today)
-                {
-                    kezdes = value;
-                }
-                else
-                {
-                    throw new Exception();
-                }
-            }
-        }
-        public DateTime Befejezes
-        {
-            get => befejezes;
-            set
-            {
-                if (((DateTime)value).Date >= kezdes.Date)
-                {
-                    befejezes = value;
-                }
-                else
-                {
-                    throw new Exception();
-                }
-            }
-        }
+        public DateTime Kezdes { get => kezdes; set => kezdes = value; }
+        public DateTime Befejezes { get => befejezes; set => befejezes = value; }
+        public int Alapterulet { get => alapterulet; set => alapterulet = value; }
 
         public Epulet(string cim, int alapterulet, Anyagok epitesianyag, DateTime kezdes, DateTime befejezes)
         {

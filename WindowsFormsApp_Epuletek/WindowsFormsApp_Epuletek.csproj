@@ -68,6 +68,7 @@
     <Compile Include="Form_Tombhaz.Designer.cs">
       <DependentUpon>Form_Tombhaz.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kalkulacio.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tombhaz.cs" />

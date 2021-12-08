@@ -12,6 +12,7 @@ namespace WindowsFormsApp_Epuletek
 {
     public partial class Form_Csaladihaz : Form
     {
+        public string Muvelet = "uj";
         public Form_Csaladihaz()
         {
             InitializeComponent();
@@ -19,6 +20,20 @@ namespace WindowsFormsApp_Epuletek
 
         private void Form_Csaladihaz_Load(object sender, EventArgs e)
         {
+            if (Muvelet.Equals("update"))
+            {
+                Csaladihaz kiv = (Csaladihaz)Program.form_Nyito.listBox_Epuletek.SelectedItem;
+                textBox_Cim.Text = kiv.Cim;
+                textBox_Cim.ReadOnly = true;
+                numericUpDown_Alapterulet.Value = kiv.Alapterulet;
+                comboBox_Epitesianyag.SelectedText = kiv.Epitesianyag.ToString();
+                comboBox_Epitesianyag.Enabled = false;
+                dateTimePicker_Befejezes.Value = kiv.Befejezes;
+                dateTimePicker_Kezdes.Value = kiv.Kezdes;
+                numericUpDown_OttElok.Value = kiv.OttElok;
+                checkBox_Garazs.Checked = kiv.VanGarazs;
+                comboBox_TetoTipusa.SelectedText = kiv.Tetotipus.ToString();
+            }
             foreach (string item in Enum.GetNames(typeof(Anyagok)))
             {
                 comboBox_Epitesianyag.Items.Add(item);
@@ -47,7 +62,16 @@ namespace WindowsFormsApp_Epuletek
                 checkBox_Garazs.Checked,
                 tetoAnyaga
                 );
-            Program.form_Nyito.listBox_Epuletek.Items.Add(uj);
+            if (Muvelet.Equals("update"))
+            {
+                int index = Program.form_Nyito.listBox_Epuletek.SelectedIndex;
+                Program.form_Nyito.listBox_Epuletek.Items.RemoveAt(index);
+                Program.form_Nyito.listBox_Epuletek.Items.Insert(index, uj);
+            }
+            else
+            {
+                Program.form_Nyito.listBox_Epuletek.Items.Add(uj);
+            }
             textBox_Cim.Text = "";
             numericUpDown_Alapterulet.Value = numericUpDown_Alapterulet.Minimum;
             dateTimePicker_Kezdes.Value = DateTime.Now;

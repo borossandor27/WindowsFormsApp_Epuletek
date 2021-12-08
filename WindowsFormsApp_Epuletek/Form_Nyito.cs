@@ -77,7 +77,7 @@ namespace WindowsFormsApp_Epuletek
             Program.form_Tombhaz.ShowDialog();
         }
 
-        private void button_Save_Click(object sender, EventArgs e)
+        private void Save_Epuletek()
         {
             try
             {
@@ -101,6 +101,54 @@ namespace WindowsFormsApp_Epuletek
 
                 MessageBox.Show(ex.Message);
             }
+            //MessageBox.Show("Sikeres mentés");
+        }
+
+        private void Form_Nyito_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("valóban kilép?","Megerősítés",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
+            {
+                Save_Epuletek();
+                e.Cancel = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+
+        }
+
+        private void button_Delete_Click(object sender, EventArgs e)
+        {
+            if (listBox_Epuletek.SelectedIndex < 0)
+            {
+                MessageBox.Show("Nincs kiválasztott épület");
+                return;
+            }
+            if (MessageBox.Show("Valóban törli?", "Figyelmeztetés",MessageBoxButtons.YesNo,MessageBoxIcon.Warning)==DialogResult.Yes)
+            {
+                listBox_Epuletek.Items.RemoveAt(listBox_Epuletek.SelectedIndex);
+            }
+        }
+
+        private void button_Update_Click(object sender, EventArgs e)
+        {
+            if (listBox_Epuletek.SelectedIndex < 0)
+            {
+                MessageBox.Show("Nincs kiválasztva elem");
+                return;
+            }
+            
+            if (listBox_Epuletek.SelectedItem.GetType()== typeof(Csaladihaz))
+            {
+                Program.form_csaladihaz.Muvelet = "update";
+                Program.form_csaladihaz.ShowDialog();
+            }
+            else
+            {
+                //-- Tömbház adatainak a módosítása
+            }
+
         }
     }
 }
