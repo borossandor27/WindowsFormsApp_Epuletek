@@ -20,27 +20,34 @@ namespace WindowsFormsApp_Epuletek
 
         private void Form_Csaladihaz_Load(object sender, EventArgs e)
         {
+            Csaladihaz kiv = (Csaladihaz)Program.form_Nyito.listBox_Epuletek.SelectedItem;
             if (Muvelet.Equals("update"))
             {
-                Csaladihaz kiv = (Csaladihaz)Program.form_Nyito.listBox_Epuletek.SelectedItem;
                 textBox_Cim.Text = kiv.Cim;
                 textBox_Cim.ReadOnly = true;
                 numericUpDown_Alapterulet.Value = kiv.Alapterulet;
-                comboBox_Epitesianyag.SelectedText = kiv.Epitesianyag.ToString();
                 comboBox_Epitesianyag.Enabled = false;
                 dateTimePicker_Befejezes.Value = kiv.Befejezes;
                 dateTimePicker_Kezdes.Value = kiv.Kezdes;
                 numericUpDown_OttElok.Value = kiv.OttElok;
                 checkBox_Garazs.Checked = kiv.VanGarazs;
-                comboBox_TetoTipusa.SelectedText = kiv.Tetotipus.ToString();
             }
             foreach (string item in Enum.GetNames(typeof(Anyagok)))
             {
-                comboBox_Epitesianyag.Items.Add(item);
+                int index = comboBox_Epitesianyag.Items.Add(item);
+                if (Muvelet.Equals("update") && kiv.Epitesianyag.ToString().Equals(item))
+                {
+                    //-- Ha nem állítjuk be, akkor -1 marad !!!
+                    comboBox_Epitesianyag.SelectedIndex = index;
+                }
             }
             foreach (string item in Enum.GetNames(typeof(TetoAnyaga)))
             {
-                comboBox_TetoTipusa.Items.Add(item);
+                int index = comboBox_TetoTipusa.Items.Add(item);
+                if (Muvelet.Equals("update") && kiv.Tetotipus.ToString().Equals(item))
+                {
+                    comboBox_TetoTipusa.SelectedIndex = index;
+                }
             }
         }
 
@@ -50,8 +57,8 @@ namespace WindowsFormsApp_Epuletek
             {
                 return;
             }
-            TetoAnyaga tetoAnyaga = (TetoAnyaga)Enum.Parse(typeof(TetoAnyaga), comboBox_TetoTipusa.SelectedItem.ToString());
-            Anyagok epitesiAnyag = (Anyagok)Enum.Parse(typeof(Anyagok), comboBox_Epitesianyag.SelectedItem.ToString());
+            TetoAnyaga tetoAnyaga = (TetoAnyaga)Enum.Parse(typeof(TetoAnyaga), comboBox_TetoTipusa.SelectedIndex.ToString());
+            Anyagok epitesiAnyag = (Anyagok)Enum.Parse(typeof(Anyagok), comboBox_Epitesianyag.SelectedIndex.ToString());
             Csaladihaz uj = new Csaladihaz(
                 textBox_Cim.Text,
                 (int)numericUpDown_Alapterulet.Value,
